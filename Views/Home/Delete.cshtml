@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Delete_Application";
+}
+
+@model DaMovies.Models.FormClass
+
+<h2>Confirmation Deletion</h2>
+<h3> You sure you want to delete the record for @Model.Title </h3>
+
+
+<form method="post" asp-controller="Home" asp-action="Delete">
+    <button type="submit">Delete</button>
+    <a asp-controller="Home" asp-action="AllMovies" class="btn btn-primary">Go Back</a>
+
+    <input type="hidden" asp-for="MovieID" />
+
+</form>

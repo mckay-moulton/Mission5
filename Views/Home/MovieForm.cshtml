@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Movie Form";
+}
+@model DaMovies.Models.FormClass
+
+<br />
+<h1>Fill Out Movie Here</h1><br />
+
+<div>
+    <form method="post">
+        @*Return the customized messages for all ill-entered values, not just the first one*@
+        <div asp-validation-summary="All"></div>
+
+        <label asp-for="CategoryID">Category: </label>
+        <select asp-for="CategoryID">
+            <option value="">Select Category</option>
+            @foreach (MovieCategories mov in ViewBag.Movies)
+            {
+                <option value="@mov.CategoryID">@mov.Category</option>
+            }
+        </select>
+
+        @*Enter each field the user can fill out or select from a drop-down menu*@
+        <label asp-for="Title">Title: </label>
+        <input asp-for="Title" />
+
+        <label asp-for="Year">Year: </label>
+        <input asp-for="Year" />
+
+        <label asp-for="Director">Director: </label>
+        <input asp-for="Director" /> <br />
+
+        <label asp-for="Rating">Rating: </label>
+        <select asp-for="Rating">
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+
+        <label asp-for="Edited">Edited: </label>
+        <select asp-for="Edited">
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select>
+
+        <label asp-for="Lent_To">Lent To: </label>
+        <input asp-for="Lent_To" />
+
+        <label asp-for="Notes">Notes: </label>
+        <input asp-for="Notes" maxlength="25" /> <br />
+
+        <button type="submit">Submit Application</button>
+    </form>
+    
+
+</div>
+

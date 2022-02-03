@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "View Movies";
+}
+
+@model List<FormClass>
+
+<table class="table table-bordered table-striped">
+    @*Make headers*@
+    <thead class= "font-weight-bold">
+        <tr>
+            <td>Category</td>
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited</td>
+            <td>Lent To</td>
+            <td>Notes</td>
+        </tr>
+    </thead>
+
+    @*now add rows to the table, using a loop*@
+<tbody>
+    @foreach (FormClass temp in Model)
+    {
+    <tr>
+        <td>@temp.Category.Category</td> @*not sure what to put here...*@
+        <td>@temp.Title</td>
+        <td>@temp.Year</td>
+        <td>@temp.Director</td>
+        <td>@temp.Rating</td>
+        <td>@temp.Edited</td>
+        <td>@temp.Lent_To</td>
+        <td>@temp.Notes</td>
+
+        <td><a asp-controller="Home" asp-action ="Edit" asp-route-movieid="@temp.MovieID">Edit</a></td>
+        <td><a asp-controller="Home" asp-action = "Delete"asp-route-movieid="@temp.MovieID">Delete</a></td>
+
+
+    </tr>
+    }
+
+
+</tbody>
+
+</table>
